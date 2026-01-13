@@ -1,7 +1,6 @@
 # Git이 텍스트 파일을 자동으로 감지하고, 저장소에는 LF (Unix/macOS 스타일) 줄 바꿈 문자를 사용하도록 합니다.
 # Windows 사용자가 checkout하면 CRLF로, commit하면 LF로 자동 변환됩니다.
 * text=auto eol=lf
-
 # --- Unity & C# 프로젝트 관련 텍스트 파일 ---
 # 아래 파일들은 텍스트로 간주하고 LF 줄 바꿈을 사용합니다.
 *.cs eol=lf
@@ -10,7 +9,6 @@
 *.xml eol=lf
 *.html eol=lf
 *.css eol=lf
-
 # Unity 셰이더 파일
 *.shader eol=lf
 # Unity 셰이더 인클루드 파일
@@ -44,7 +42,6 @@
 *.tsv eol=lf
 # Roslyn 컴파일러 응답 파일
 *.rsp eol=lf
-
 # --- 바이너리 파일 ---
 # 아래 파일들은 바이너리로 처리되어 줄 바꿈 문자 변환 등이 적용되지 않습니다.
 # Unity 에셋 파일들
@@ -78,10 +75,9 @@
 # Unity 메시 에셋 (모델 파일에서 임포트된 후 생성)
 *.mesh binary
 *.assetbundle binary
-*.bundle binary
+*.bundle filter=lfs diff=lfs merge=lfs -text
 # Unity 리소스 파일
 *.resS binary
-
 # 일반적인 바이너리 파일 형식
 # 이미지
 *.png binary
@@ -96,7 +92,6 @@
 *.exr binary
 *.hdr binary
 *.tga binary
-
 # 모델 원본 파일
 *.fbx binary
 *.obj binary
@@ -113,7 +108,6 @@
 *.3ds binary
 # SketchUp
 *.skp binary
-
 # 오디오 파일
 *.ogg binary
 *.mp3 binary
@@ -121,20 +115,17 @@
 *.aif binary
 *.aiff binary
 *.flac binary
-
 # 비디오 파일
 *.mp4 binary
 *.mov binary
 *.avi binary
 *.webm binary
 *.mkv binary
-
 # 폰트 파일
 *.ttf binary
 *.otf binary
 *.woff binary
 *.woff2 binary
-
 # 문서/압축/기타 바이너리
 *.pdf binary
 *.doc binary
@@ -149,11 +140,11 @@
 *.gz binary
 *.tar binary
 # Dynamic Link Library
-*.dll binary
+*.dll filter=lfs diff=lfs merge=lfs -text
 # Executable (Windows)
 *.exe binary
 # Shared Object (Linux)
-*.so binary
+*.so filter=lfs diff=lfs merge=lfs -text
 # Dynamic Library (macOS)
 *.dylib binary
 # Program Database (디버그 심볼)
@@ -161,6 +152,7 @@
 *.jar binary
 *.ipk binary
 # Static Library
-*.a binary
+*.a filter=lfs diff=lfs merge=lfs -text
 # Static Library (Windows)
-*.lib binary
+*.lib filter=lfs diff=lfs merge=lfs -text
+*.framework filter=lfs diff=lfs merge=lfs -text
